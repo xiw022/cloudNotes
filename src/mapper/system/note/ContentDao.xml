@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.happok.cloudnotes.system.dao.note.IContentDao">
+<insert id="save" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO tb_d_content(not_id,title,content)
+        VALUES(#{contentId},#{title},#{content})
+</insert>
+<resultMap type="Content" id="map">
+<id/>
+<result property="contentId" column="not_id"/>
+</resultMap>
+<select id="find" resultMap="map">
+  SELECT 
+  *
+  FROM 
+  tb_d_content
+  WHERE 
+  not_id=#{id};
+</select>
+
+<update id="update">
+        UPDATE tb_d_content SET content=#{content} WHERE not_id=#{id}
+</update>
+
+<update id="delete">
+        DELETE FROM tb_d_content WHERE id=#{id}
+</update>
+</mapper>
+

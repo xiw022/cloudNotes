@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.happok.cloudnotes.system.dao.test.ITestDao">
+
+    <sql id="ConfigColumns"> a.id as "id", a.name as "name"</sql>
+
+    <sql id="ConfigJoins">
+    </sql>
+
+    <select id="get" resultType="Test">
+        SELECT
+        <include refid="ConfigColumns"/>
+        FROM tb_d_test t
+        WHERE t.id = #{id}
+    </select>
+
+    <select id="findList" resultType="Test">
+        SELECT
+        <include refid="ConfigColumns"/>
+        FROM tb_d_test a
+    </select>
+    <select id="listForPage" resultType="Test">
+		SELECT
+			id,
+			name
+		FROM
+			tb_d_test
+	</select>
+</mapper>

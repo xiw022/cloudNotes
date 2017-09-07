@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.happok.cloudnotes.system.dao.note.INoteDao">
+<insert id="save" keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO tb_d_note(note_name,create_user,create_time)
+        VALUES(#{noteName},1,NOW())
+</insert>
+<select id="findAll" resultType="Note">
+SELECT * FROM TB_D_NOTE 
+</select>
+
+<update id="change">
+        UPDATE tb_d_note SET note_name=#{noteName}, create_time=NOW() WHERE id=#{id}
+</update>
+
+<delete id="delete">
+        DELETE FROM tb_d_note WHERE id=#{id}
+</delete>
+
+<update id="reorder">
+        UPDATE tb_d_note SET id = id - 1 WHERE id > #{id}
+</update>
+
+</mapper>
