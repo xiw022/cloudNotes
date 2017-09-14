@@ -14,4 +14,6 @@ public interface INoteManager {
 	public int updateNote(Note note);
 
 	int deleteNote(Note note);
+
+	List<Note> find(Map<String, Object> map);
 }

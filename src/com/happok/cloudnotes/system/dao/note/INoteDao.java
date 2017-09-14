@@ -19,4 +19,6 @@ public interface INoteDao extends BaseMapper<Note>{
 	int delete(Note note);
 	
 	int reorder(Note note);
+
+	List<Note> find(Map<String, Object> map);
 }

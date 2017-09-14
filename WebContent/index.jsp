@@ -16,6 +16,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <a href="<%=basePath%>test/test">测试链接</a>
 
-<a href="<%=basePath%>note/list">笔记本</a>
+<a href="<%=basePath%>user/loginPage">笔记本</a>
 </body>
 </html>

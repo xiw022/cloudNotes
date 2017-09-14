@@ -13,11 +13,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <title>笔记本列表</title>
 </head>
 <body>
-<h1>笔记本列表</h1><a href="<%=basePath%>note/add">添加笔记</a>
+<h1>笔记本列表</h1>
+<form method="post" action="<%=basePath%>note/add">
+<p><input type="text" name="createUser" value="${createUser }"></p>
+<p><input type="submit" value="添加笔记"></p>
+</form>
+<form method="post" action="<%=basePath%>user/updatePage">
+<p><input type="hidden" name="createUser" value="${createUser }"></p>
+<p><input type="submit" value="编辑个人信息"></p>
+</form>
 <table border="1" style="width: 100%;">
 <tr><td>ID</td><td>笔记本名称</td><td>创建时间</td><td colspan="4" style="text-align: center;">操作</td></tr>
 <c:forEach items="${notes }" var="note" varStatus="status">
-<tr><td>${status.index+1}</td><td>${note.noteName }</td><td><fmt:formatDate value="${note.createTime }" /></td><td><a href="<%=basePath%>note/update?id=${note.id }">更新笔记</a></td><td><a href="<%=basePath%>note/delete?id=${note.id }">删除笔记</a></td><td><a href="<%=basePath%>content/addContent?id=${note.id}">新增笔记内容</a></td><td><a href="<%=basePath%>content/showContent?id=${note.id}">查看笔记内容</a></td></tr>
+<tr><td>${status.index+1}</td><td>${note.noteName }</td><td><fmt:formatDate value="${note.createTime }" /></td><td><a href="<%=basePath%>note/update?id=${note.id }&createUser=${createUser }">更新笔记</a></td><td><a href="<%=basePath%>note/delete?id=${note.id }&createUser=${createUser }">删除笔记</a></td><td><a href="<%=basePath%>content/addContent?id=${note.id}&createUser=${createUser }">新增笔记内容</a></td><td><a href="<%=basePath%>content/showContent?id=${note.id}&createUser=${createUser }">查看笔记内容</a></td></tr>
 </c:forEach>
 </table>
 </body>

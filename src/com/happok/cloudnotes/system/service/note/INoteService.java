@@ -18,5 +18,7 @@ public interface INoteService {
 	Note update(Note note);
 
 	Note delete(Note note);
+
+	List<Note> find(Map<String, Object> map);
 	
 }

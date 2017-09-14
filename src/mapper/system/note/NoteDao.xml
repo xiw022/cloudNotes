@@ -3,12 +3,17 @@
 <mapper namespace="com.happok.cloudnotes.system.dao.note.INoteDao">
 <insert id="save" keyProperty="id" useGeneratedKeys="true">
         INSERT INTO tb_d_note(note_name,create_user,create_time)
-        VALUES(#{noteName},1,NOW())
+        VALUES(#{noteName},#{createUser},NOW())
 </insert>
 <select id="findAll" resultType="Note">
 SELECT * FROM TB_D_NOTE 
 </select>
-
+<select id="find" resultType="Note">
+SELECT * FROM
+TB_D_NOTE
+WHERE
+create_user=#{id }
+</select>
 <update id="change">
         UPDATE tb_d_note SET note_name=#{noteName}, create_time=NOW() WHERE id=#{id}
 </update>

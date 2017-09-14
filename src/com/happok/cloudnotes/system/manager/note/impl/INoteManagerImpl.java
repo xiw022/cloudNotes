@@ -23,6 +23,10 @@ public class INoteManagerImpl implements INoteManager{
 		// TODO Auto-generated method stub
 		return noteDao.findAll(map);
 	}
+	@Override
+	public List<Note> find(Map<String, Object> map) {
+		return noteDao.find(map);
+	}
 	
 	@Override
 	public int updateNote(Note note) {

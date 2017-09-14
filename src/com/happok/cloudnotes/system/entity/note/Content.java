@@ -11,6 +11,7 @@ public class Content implements Serializable{
 	private Long contentId;
 	private String title;
 	private String content;
+	private Long createUser;
 
 	public Long getId() {
 		return id;
@@ -42,5 +43,13 @@ public class Content implements Serializable{
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public Long getCreateUser() {
+		return createUser;
+	}
+
+	public void setCreateUser(Long createUser) {
+		this.createUser = createUser;
 	}
 }

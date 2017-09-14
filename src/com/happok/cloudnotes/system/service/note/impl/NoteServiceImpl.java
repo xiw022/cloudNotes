@@ -28,6 +28,11 @@ public class NoteServiceImpl implements INoteService{
 		// TODO Auto-generated method stub
 		return noteManager.findAll(map);
 	}
+	
+	@Override
+	public List<Note> find(Map<String, Object> map) {
+		return noteManager.find(map);
+	}
 	@Override
 	public Note update(Note note) {
 		// TODO Auto-generated method stub 
