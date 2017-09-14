@@ -17,9 +17,16 @@
   WHERE 
   not_id=#{id};
 </select>
-
+<select id="findByID" resultMap="map">
+  SELECT 
+  *
+  FROM 
+  tb_d_content
+  WHERE 
+  id=#{id};
+</select>
 <update id="update">
-        UPDATE tb_d_content SET content=#{content} WHERE not_id=#{id}
+        UPDATE tb_d_content SET content=#{content} WHERE id=#{id}
 </update>
 
 <update id="delete">

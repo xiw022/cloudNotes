@@ -16,4 +16,6 @@ public interface IContentManager {
 
 	public int deleteContent(Content content);
 
+	public List<Content> findByID(Map<String, Object> map);
+
 }

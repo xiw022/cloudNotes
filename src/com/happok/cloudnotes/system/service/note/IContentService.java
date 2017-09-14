@@ -16,4 +16,6 @@ public interface IContentService {
 
 	Content delete(Content content);
 
+	List<Content> findByID(Map<String, Object> map);
+
 }

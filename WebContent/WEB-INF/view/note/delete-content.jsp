@@ -14,9 +14,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 <form action="<%=basePath%>content/deleteContent" method="post">
 <p><input type="hidden" name="id" value="${id }"></p>
+<p><input type="hidden" name="contentId" value="${contentId }"></p>
 <p><input type="submit" value="确认"></p>
 </form>
-<form action="<%=basePath%>note/list" method="get">
+<form action="<%=basePath%>content/showContent" method="get">
+<p><input type="hidden" name="id" value="${contentId }"></p>
 <p><input type="submit" value="返回"></p>
 </form>
 </body>

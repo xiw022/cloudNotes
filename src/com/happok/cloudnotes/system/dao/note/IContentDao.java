@@ -17,4 +17,6 @@ public interface IContentDao extends BaseMapper<Content>{
 	int update(Content content);
 
 	int delete(Content content);
+
+	List<Content> findByID(Map<String, Object> map);
 }

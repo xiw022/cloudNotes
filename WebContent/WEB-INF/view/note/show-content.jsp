@@ -16,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <table border="1" style="width: 100%;">
 <tr><td>ID</td><td>内容标题</td><td colspan="2" style="text-align: center;">操作</td></tr>
 <c:forEach items="${content }" var="content" varStatus="status">
-<tr><td>${content.contentId}</td><td>${content.title }</td><td><a href="<%=basePath%>content/updateContent?id=${content.contentId }">更新内容</a></td><td><a href="<%=basePath%>content/delete?id=${content.id }">删除内容</a></td></tr>
+<tr><td>${content.contentId}</td><td>${content.title }</td><td><a href="<%=basePath%>content/updateContent?id=${content.id }&contentId=${content.contentId}">更新内容</a></td><td><a href="<%=basePath%>content/delete?id=${content.id }&contentId=${content.contentId}">删除内容</a></td></tr>
 </c:forEach>
 </table>
 </body>

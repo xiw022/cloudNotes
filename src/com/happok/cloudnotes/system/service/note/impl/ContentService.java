@@ -26,7 +26,10 @@ public class ContentService implements IContentService{
 	public List<Content> find(Map<String, Object> map) {
 		return contentManager.find(map);
 	}
-	
+	@Override
+	public List<Content> findByID(Map<String, Object> map) {
+		return contentManager.findByID(map);
+	}
 	@Override
 	public Content update(Content content){
 		contentManager.update(content);

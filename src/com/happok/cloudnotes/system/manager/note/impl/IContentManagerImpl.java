@@ -24,6 +24,10 @@ public class IContentManagerImpl implements IContentManager{
 		return contentDao.find(map);
 	}
 	@Override
+	public List<Content> findByID(Map<String, Object> map) {
+		return contentDao.findByID(map);
+	}
+	@Override
 	public int update(Content content) {
 		return contentDao.update(content);
 	}

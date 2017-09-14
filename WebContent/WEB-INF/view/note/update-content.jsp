@@ -14,6 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 <form action="<%=basePath%>content/changeContent" method="post">
 <p><input type="text" name="id" value="${id }"></p>
+<p><input type="text" name="contentId" value="${contentId }"></p>
 <p>笔记本内容:<textarea name="content" rows="30" cols="80">${content }</textarea></p>
 <p><input type="submit" value="提交"></p>
 </form>

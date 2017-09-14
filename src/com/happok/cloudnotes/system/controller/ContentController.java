@@ -54,13 +54,14 @@ public class ContentController {
 	  return "note/show-content";
 	}
 	@RequestMapping("/updateContent")
-	public String updateContent(HttpServletRequest request,Model model) {
+	public String updateContent(HttpServletRequest request,Model model, Content content) {
 		System.out.println("update内容");
+		model.addAttribute("contentId", content.getContentId());
 		model.addAttribute("id", request.getParameter("id"));
 		Map<String,Object> map = new HashMap<String,Object>();
 		map.put("id", request.getParameter("id"));
-		List<Content> content = contentService.find(map);
-		for(Content c:content){
+		List<Content> contents = contentService.findByID(map);
+		for(Content c:contents){
 			model.addAttribute("content", c.getContent());
 		}
 		return "note/update-content";
@@ -70,20 +71,21 @@ public class ContentController {
 	public View changeContent(Content content, HttpServletRequest request) {
 		System.out.println("changeContent");
 		contentService.update(content);
-		return new RedirectView("/cloudnotes/content/showContent?id="+request.getParameter("id"));
+		return new RedirectView("/cloudnotes/content/showContent?id="+request.getParameter("contentId"));
 	}
 	
 	@RequestMapping("/delete")
 	public String delete(HttpServletRequest request, Model model) {
 		System.out.println("前往删除页面");
 		model.addAttribute("id", request.getParameter("id"));
+		model.addAttribute("contentId", request.getParameter("contentId"));
 		return "note/delete-content";
 	}
 	
 	@RequestMapping("/deleteContent")
-	public View deleteContent(Content content) {
+	public View deleteContent(Content content, HttpServletRequest request) {
 		System.out.println("delete");
 		contentService.delete(content);
-		return new RedirectView("/cloudnotes/content/showContent");
+		return new RedirectView("/cloudnotes/content/showContent?id="+request.getParameter("contentId"));
 	}
 }
