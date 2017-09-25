@@ -9,14 +9,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>更新内容</title>
+<title>Update Content</title>
 </head>
 <body>
 <form action="<%=basePath%>content/changeContent" method="post">
-<p><input type="text" name="id" value="${id }"></p>
-<p><input type="text" name="contentId" value="${contentId }"></p>
-<p>笔记本内容:<textarea name="content" rows="30" cols="80">${content }</textarea></p>
-<p><input type="submit" value="提交"></p>
+<p><input type="hidden" name="id" value="${id }"></p>
+<p><input type="hidden" name="contentId" value="${contentId }"></p>
+<p>Content:<textarea name="content" rows="30" cols="80">${content }</textarea></p>
+<p><input type="submit" value="submit"></p>
 </form>
 </body>
 </html>

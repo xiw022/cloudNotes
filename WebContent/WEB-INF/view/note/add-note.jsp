@@ -9,13 +9,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>添加笔记</title>
+<title>Add Note</title>
 </head>
 <body>
 <form action="<%=basePath%>note/save" method="post">
-<p>笔记本名称:<input type="text" name="createUser" value="${createUser }"></p>
-<p>笔记本名称:<input type="text" name="noteName" value=""></p>
-<p><input type="submit" value="提交"></p>
+<p>笔记本名称:<input type="hidden" name="createUser" value="${createUser }"></p>
+<p>Note Name:<input type="text" name="noteName" value=""></p>
+<p><input type="submit" value="submit"></p>
 </form>
 </body>
 </html>

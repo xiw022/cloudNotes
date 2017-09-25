@@ -29,7 +29,7 @@ public class NoteController {
   
 	@RequestMapping("/add")
 	public String add(Note note, Model model) {
-		System.out.println("通往添加页面");
+		System.out.println("go to add page");
 		System.out.println("gagaga:" + note.getCreateUser());
 		model.addAttribute("createUser", note.getCreateUser());
 		return "note/add-note";
@@ -37,16 +37,17 @@ public class NoteController {
 	
 	@RequestMapping("/save")
 	public View save(Note note) {
-		System.out.println("保存");
+		System.out.println("save");
 		noteService.save(note);
 		return new RedirectView("/cloudnotes/note/list");
 	}
 	
 	@RequestMapping("/update")
 	public String update(HttpServletRequest request,Model model, Note note) {
-		System.out.println("前往update页面");
+		System.out.println("go to update page");
 		model.addAttribute("createUser", note.getCreateUser());
 		model.addAttribute("id", request.getParameter("id"));
+		model.addAttribute("noteName", note.getNoteName());
 		return "note/update-note";
 	}
 	
@@ -60,14 +61,14 @@ public class NoteController {
 	
 	@RequestMapping("/delete")
 	public String delete(HttpServletRequest request,Model model) {
-		System.out.println("前往删除确认页面");
+		System.out.println("delete");
 		model.addAttribute("id", request.getParameter("id"));
 		return "note/delete-note";
 	}
 	
 	@RequestMapping("deleteNote")
 	public View deleteNote(Note note){
-		System.out.println("删除");
+		System.out.println("delete note");
 		noteService.delete(note);
 		return new RedirectView("/cloudnotes/note/list");
 	}
@@ -77,8 +78,8 @@ public class NoteController {
 		System.out.println(model.containsAttribute("createUser"));
 		Map<String,Object> map = new HashMap<String,Object>();
 		List<Note> notes = noteService.findAll(map);
-		System.out.println("笔记本数是" +notes.size());
-		System.out.println("进入笔记本列表");
+		System.out.println("note number are" +notes.size());
+		System.out.println("go to note list");
 		model.addAttribute("notes", notes);
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");

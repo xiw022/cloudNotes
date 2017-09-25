@@ -9,14 +9,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>笔记内容</title>
+<title>Note Content</title>
 </head>
 <body>
-<h1>笔记内容列表</h1>
+<form method="get" action="<%=basePath%>note/list">
+<p><input type="hidden" name="id" value="${id }"></p>
+<p><input type="submit" value="Back"></p>
+</form>
+<h1>Content List</h1>
 <table border="1" style="width: 100%;">
-<tr><td>ID</td><td>内容标题</td><td colspan="2" style="text-align: center;">操作</td></tr>
+<tr><td>ID</td><td>Content Title</td><td colspan="2" style="text-align: center;">Operation</td></tr>
 <c:forEach items="${content }" var="content" varStatus="status">
-<tr><td>${content.contentId}</td><td>${content.title }</td><td><a href="<%=basePath%>content/updateContent?id=${content.id }&contentId=${content.contentId}">更新内容</a></td><td><a href="<%=basePath%>content/delete?id=${content.id }&contentId=${content.contentId}">删除内容</a></td></tr>
+<tr><td>${content.contentId}</td><td>${content.title }</td><td><a href="<%=basePath%>content/updateContent?id=${content.id }&contentId=${content.contentId}">Update Content</a></td><td><a href="<%=basePath%>content/delete?id=${content.id }&contentId=${content.contentId}">Delete Content</a></td></tr>
 </c:forEach>
 </table>
 </body>

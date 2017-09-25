@@ -24,7 +24,7 @@ public class LoginController {
 	public String index(Map<String, Object> params,Model model){
 		params.put("pageNumber", "1");
 		params.put("pageSize", "10");
-		System.out.println("进入测试页面");
+		System.out.println("go to test page");
 		model.addAttribute("list", testService.listUser(params));
 		return "test/test";
 	}

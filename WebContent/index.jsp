@@ -8,14 +8,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>jsp主页</title>
+<title>jsp</title>
 </head>
 <body>
 
-<h1>进入测试页面</h1>
+<h1>Enter test</h1>
 
-<a href="<%=basePath%>test/test">测试链接</a>
+<a href="<%=basePath%>test/test">test link</a>
 
-<a href="<%=basePath%>user/loginPage">笔记本</a>
+<a href="<%=basePath%>user/loginPage">cloudNotes</a>
 </body>
 </html>

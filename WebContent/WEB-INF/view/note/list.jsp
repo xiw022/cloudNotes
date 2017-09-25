@@ -10,22 +10,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>笔记本列表</title>
+<title>Note List</title>
 </head>
 <body>
-<h1>笔记本列表</h1>
+<h1>Note List</h1>
 <form method="post" action="<%=basePath%>note/add">
-<p><input type="text" name="createUser" value="${createUser }"></p>
-<p><input type="submit" value="添加笔记"></p>
+<p><input type="hidden" name="createUser" value="${createUser }"></p>
+<p><input type="submit" value="Add Note"></p>
 </form>
 <form method="post" action="<%=basePath%>user/updatePage">
 <p><input type="hidden" name="createUser" value="${createUser }"></p>
-<p><input type="submit" value="编辑个人信息"></p>
+<p><input type="submit" value="Edit Personal Information"></p>
 </form>
 <table border="1" style="width: 100%;">
-<tr><td>ID</td><td>笔记本名称</td><td>创建时间</td><td colspan="4" style="text-align: center;">操作</td></tr>
+<tr><td>ID</td><td>Note Name</td><td>Last Update Time</td><td colspan="4" style="text-align: center;">Operation</td></tr>
 <c:forEach items="${notes }" var="note" varStatus="status">
-<tr><td>${status.index+1}</td><td>${note.noteName }</td><td><fmt:formatDate value="${note.createTime }" /></td><td><a href="<%=basePath%>note/update?id=${note.id }&createUser=${createUser }">更新笔记</a></td><td><a href="<%=basePath%>note/delete?id=${note.id }&createUser=${createUser }">删除笔记</a></td><td><a href="<%=basePath%>content/addContent?id=${note.id}&createUser=${createUser }">新增笔记内容</a></td><td><a href="<%=basePath%>content/showContent?id=${note.id}&createUser=${createUser }">查看笔记内容</a></td></tr>
+<tr><td>${status.index+1}</td><td>${note.noteName }</td><td><fmt:formatDate value="${note.createTime }" /></td><td><a href="<%=basePath%>note/update?id=${note.id }&createUser=${createUser }">Change Note Name</a></td><td><a href="<%=basePath%>note/delete?id=${note.id }&createUser=${createUser }">Delete Note</a></td><td><a href="<%=basePath%>content/addContent?id=${note.id}&createUser=${createUser }">Add Content</a></td><td><a href="<%=basePath%>content/showContent?id=${note.id}&createUser=${createUser }">Content</a></td></tr>
 </c:forEach>
 </table>
 </body>

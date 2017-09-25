@@ -26,14 +26,14 @@ public class ContentController {
 
 	@RequestMapping("addContent")
 	public String addContent(HttpServletRequest request, Model model){
-		System.out.println("添加内容");
+		System.out.println("add content");
 		model.addAttribute("id", request.getParameter("id"));
 		return "note/add-content";
 	}
 	
 	@RequestMapping("saveContent")
 	public View saveContent(Content content) {
-		System.out.println("保存内容：");
+		System.out.println("save content");
 		System.out.println(content.getContentId());
 		contentService.save(content);
 		return new RedirectView("/cloudnotes/note/list");
@@ -41,7 +41,7 @@ public class ContentController {
 	
 	@RequestMapping("showContent")
 	public String showContent(HttpServletRequest request, Model model){
-	  System.out.println("显示内容");
+	  System.out.println("show content");
 	  model.addAttribute("id", request.getParameter("id"));
 	  Map<String,Object> map = new HashMap<String,Object>();
 	  map.put("id", request.getParameter("id"));
@@ -49,13 +49,13 @@ public class ContentController {
       for(Content c:content) {
     	  System.out.println(c.getContentId());
       }
-      System.out.println("内容数是" +content.size());
+      System.out.println("contents total are" +content.size());
 	  model.addAttribute("content", content);
 	  return "note/show-content";
 	}
 	@RequestMapping("/updateContent")
 	public String updateContent(HttpServletRequest request,Model model, Content content) {
-		System.out.println("update内容");
+		System.out.println("update content");
 		model.addAttribute("contentId", content.getContentId());
 		model.addAttribute("id", request.getParameter("id"));
 		Map<String,Object> map = new HashMap<String,Object>();
@@ -76,7 +76,7 @@ public class ContentController {
 	
 	@RequestMapping("/delete")
 	public String delete(HttpServletRequest request, Model model) {
-		System.out.println("前往删除页面");
+		System.out.println("go to delete page");
 		model.addAttribute("id", request.getParameter("id"));
 		model.addAttribute("contentId", request.getParameter("contentId"));
 		return "note/delete-content";

@@ -9,17 +9,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>删除笔记</title>
+<title>Delete Note</title>
 </head>
 <body>
 <form action="<%=basePath%>content/deleteContent" method="post">
 <p><input type="hidden" name="id" value="${id }"></p>
 <p><input type="hidden" name="contentId" value="${contentId }"></p>
-<p><input type="submit" value="确认"></p>
+<p><input type="submit" value="Delete"></p>
 </form>
 <form action="<%=basePath%>content/showContent" method="get">
 <p><input type="hidden" name="id" value="${contentId }"></p>
-<p><input type="submit" value="返回"></p>
+<p><input type="submit" value="Cancel"></p>
 </form>
 </body>
 </html>
