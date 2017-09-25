@@ -1,1 +1,1 @@
-#cloudNote An online Notebook using SSM framework, and mySQL database
+#cloudNote An online Notebook implemented in Java with SpringMVC + Spring + MyBatis framework, and mySQL database
