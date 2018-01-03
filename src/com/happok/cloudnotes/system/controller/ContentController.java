@@ -1,3 +1,7 @@
+/*
+ * Arthur: Xiuhao Wang
+ * Date: 9/1/17
+ */
 package com.happok.cloudnotes.system.controller;
 
 import java.util.HashMap;
@@ -45,14 +49,15 @@ public class ContentController {
 	  model.addAttribute("id", request.getParameter("id"));
 	  Map<String,Object> map = new HashMap<String,Object>();
 	  map.put("id", request.getParameter("id"));
-      List<Content> content = contentService.find(map);
-      for(Content c:content) {
-    	  System.out.println(c.getContentId());
-      }
-      System.out.println("contents total are" +content.size());
+          List<Content> content = contentService.find(map);
+          for(Content c:content) {
+            System.out.println(c.getContentId());
+          }
+          System.out.println("contents total are" +content.size());
 	  model.addAttribute("content", content);
 	  return "note/show-content";
 	}
+	
 	@RequestMapping("/updateContent")
 	public String updateContent(HttpServletRequest request,Model model, Content content) {
 		System.out.println("update content");
