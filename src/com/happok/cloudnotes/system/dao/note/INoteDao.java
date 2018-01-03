@@ -1,3 +1,7 @@
+/*
+ * Arthur: Xiuhao Wang
+ * Date: 9/1/17
+ */
 package com.happok.cloudnotes.system.dao.note;
 
 import java.util.List;
