@@ -1,3 +1,7 @@
+/*
+ * Arthur: Xiuhao Wang
+ * Date: 9/1/17
+ */
 package com.happok.cloudnotes.system.controller;
 
 import java.util.HashMap;
@@ -85,9 +89,9 @@ public class NoteController {
 		User user = (User) session.getAttribute("user");
 		if(null != user ) model.addAttribute("createUser", user.getId());
 		Map<String,Object> map2 = new HashMap<String,Object>();
-    	map2.put("id", user.getId());
-    	List<Note> result = noteService.find(map2);
-    	model.addAttribute("notes", result);
+    	        map2.put("id", user.getId());
+         	List<Note> result = noteService.find(map2);
+    	        model.addAttribute("notes", result);
 		return "note/list";
 	}
 }
