@@ -1,3 +1,7 @@
+/*
+ * Arthur: Xiuhao Wang
+ * Date: 9/1/17
+ */
 package com.happok.cloudnotes.system.controller;
 
 import java.util.HashMap;
@@ -36,8 +40,8 @@ public class UserController {
   	}
   	@RequestMapping(value = "/login")
   	public String login(User user, Model model,HttpServletRequest request) {
-  		Map<String,Object> map = new HashMap<String,Object>();
-  		//System.out.println(request.getParameter("userName"));
+  	    Map<String,Object> map = new HashMap<String,Object>();
+  	    //System.out.println(request.getParameter("userName"));
   	    map.put("userName", user.getUserName());
   	    map.put("userPassword", user.getUserPassword());
   	    for (Map.Entry entry : map.entrySet()) {
@@ -95,6 +99,7 @@ public class UserController {
   	public String registerPageWithAlert(HttpServletRequest request,Model model) {
   		return "user/registerAlert";
   	}
+	
   	@RequestMapping(value = "/register")
  	public View register(User user) {
   		
